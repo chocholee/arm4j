@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:property-placeholder file-encoding="utf-8" location="classpath:application.properties"/>
+    <context:component-scan base-package="spring"/>
+
+    <util:map id="apiURL">
+        <entry key="HelloGet">
+            <bean class="com.arm4j.core.HttpURLConnFactory">
+                <constructor-arg name="url" value="${apiURL.HelloGet.url}"/>
+            </bean>
+        </entry>
+        <entry key="HelloPost">
+            <bean class="com.arm4j.core.HttpURLConnFactory">
+                <constructor-arg name="url" value="${apiURL.HelloPost.url}"/>
+            </bean>
+        </entry>
+        <entry key="HelloPostByBody">
+            <bean class="com.arm4j.core.HttpURLConnFactory">
+                <constructor-arg name="url" value="${apiURL.HelloPostByBody.url}"/>
+            </bean>
+        </entry>
+        <entry key="HelloPostByFormParamAndBody">
+            <bean class="com.arm4j.core.HttpURLConnFactory">
+                <constructor-arg name="url" value="${apiURL.HelloPostByFormParamAndBody.url}"/>
+            </bean>
+        </entry>
+    </util:map>
+
+    <bean id="connFactoryManager" class="com.arm4j.core.HttpURLConnFactoryManager">
+        <constructor-arg name="httpURLConnFactoryMap" ref="apiURL"/>
+    </bean>
+
+</beans>
