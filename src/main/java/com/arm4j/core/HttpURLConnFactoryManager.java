@@ -9,9 +9,9 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author liwenhe
  */
-public class HttpURLConnFactoryManager {
+public class HttpURLConnFactoryManager<K, V extends HttpURLConnFactory> {
 
-    private Map<String, HttpURLConnFactory> httpURLConnFactoryMap = new ConcurrentHashMap<String, HttpURLConnFactory>();
+    private Map<K, V> httpURLConnFactoryMap = new ConcurrentHashMap<K, V>();
 
     public HttpURLConnFactoryManager() {
     }
@@ -21,7 +21,7 @@ public class HttpURLConnFactoryManager {
      *
      * @param httpURLConnFactoryMap
      */
-    public HttpURLConnFactoryManager(Map<String, HttpURLConnFactory> httpURLConnFactoryMap) {
+    public HttpURLConnFactoryManager(Map<K, V> httpURLConnFactoryMap) {
         this.httpURLConnFactoryMap = httpURLConnFactoryMap;
     }
 
@@ -31,7 +31,7 @@ public class HttpURLConnFactoryManager {
      * @param alias
      * @param httpURLConnFactory
      */
-    public void add(String alias, HttpURLConnFactory httpURLConnFactory) {
+    public void add(K alias, V httpURLConnFactory) {
         httpURLConnFactoryMap.put(alias, httpURLConnFactory);
     }
 
@@ -40,7 +40,7 @@ public class HttpURLConnFactoryManager {
      *
      * @param alias
      */
-    public void delete(String alias) {
+    public void delete(K alias) {
         httpURLConnFactoryMap.remove(alias);
     }
 
@@ -49,7 +49,7 @@ public class HttpURLConnFactoryManager {
      *
      * @param alias
      */
-    public HttpURLConnFactory get(String alias) {
+    public V get(K alias) {
         return httpURLConnFactoryMap.get(alias);
     }
 
