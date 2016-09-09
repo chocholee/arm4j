@@ -14,4 +14,12 @@
     <groupId>com.arm4j.weixin</groupId>
     <artifactId>arm4j-weixin</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.arm4j.core</groupId>
+            <artifactId>arm4j-core</artifactId>
+            <version>${version.arm4j.parent}</version>
+        </dependency>
+    </dependencies>
+
 </project>
