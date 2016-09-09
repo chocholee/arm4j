@@ -26,6 +26,7 @@
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
             </exclusions>
+            <scope>compile</scope>
         </dependency>
 
         <!-- commons lang3 -->
@@ -34,6 +35,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${version.commons.lang3}</version>
+            <scope>compile</scope>
         </dependency>
         <!-- commons lang3 -->
     </dependencies>

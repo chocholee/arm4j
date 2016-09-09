@@ -21,7 +21,7 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${version.fastjson}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <!-- fastjson -->
 
@@ -29,6 +29,7 @@
             <groupId>com.arm4j.core</groupId>
             <artifactId>arm4j-core</artifactId>
             <version>0.1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
