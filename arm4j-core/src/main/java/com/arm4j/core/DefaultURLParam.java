@@ -10,8 +10,44 @@ import java.util.*;
  */
 public class DefaultURLParam implements Param {
 
+    private List<Map.Entry<String, String>> values = new ArrayList<>(Builder.params.entrySet());
+
+    /**
+     * 对参数进行升序处理
+     *
+     * @return Param
+     */
+    public Param asc() {
+        Collections.sort(values, new Comparator<Map.Entry<String, String>>() {
+            @Override
+            public int compare(Map.Entry<String, String> o1, Map.Entry<String, String> o2) {
+                return o1.getKey().compareTo(o2.getKey());
+            }
+        });
+        return this;
+    }
+
+    /**
+     * 对参数进行降序处理
+     *
+     * @return Param
+     */
+    public Param desc() {
+        Collections.sort(values, new Comparator<Map.Entry<String, String>>() {
+            @Override
+            public int compare(Map.Entry<String, String> o1, Map.Entry<String, String> o2) {
+                if (o1.getKey().compareTo(o2.getKey()) > 0)
+                    return -1;
+                if (o1.getKey().compareTo(o2.getKey()) < 0)
+                    return 1;
+                return o1.getKey().compareTo(o2.getKey());
+            }
+        });
+        return this;
+    }
+
     public String getParam() {
-        return this.format(new ArrayList(Builder.params.entrySet()));
+        return this.format(values);
     }
 
     private String format(List param) {

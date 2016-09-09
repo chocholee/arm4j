@@ -7,7 +7,7 @@ public class TestURLParam {
 
     @Test
     public void TestParam() {
-        Param param = new DefaultURLParam
+        DefaultURLParam param = new DefaultURLParam
                 .Builder()
                 .add("name", "lee")
                 .add("age", "21")
@@ -16,6 +16,9 @@ public class TestURLParam {
         Assert.assertNotNull(param);
         Assert.assertNotNull(param.getParam());
         System.out.println(param.getParam());
+
+        System.out.println("asc: " + param.asc().getParam());
+        System.out.println("desc: " + param.desc().getParam());
     }
 
     @Test
