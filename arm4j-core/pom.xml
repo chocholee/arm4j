@@ -7,69 +7,35 @@
     <parent>
         <groupId>com.arm4j</groupId>
         <artifactId>arm4j-parent</artifactId>
-        <version>${version.arm4j.parent}</version>
+        <version>0.1.0</version>
     </parent>
 
     <name>arm4j-core</name>
     <groupId>com.arm4j.core</groupId>
     <artifactId>arm4j-core</artifactId>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${version.plugin.compiler}</version>
-                    <configuration>
-                        <verbose>true</verbose>
-                        <fork>true</fork>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${version.plugin.deploy}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${version.plugin.surefire}</version>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${version.plugin.jar}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${version.plugin.source}</version>
-                    <!--<executions>-->
-                        <!--<execution>-->
-                            <!--<phase>verify</phase>-->
-                            <!--<goals>-->
-                                <!--<goal>jar-no-fork</goal>-->
-                            <!--</goals>-->
-                        <!--</execution>-->
-                    <!--</executions>-->
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <defaultGoal>compiler</defaultGoal>
-    </build>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${version.httpclient}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-    <distributionManagement>
-        <repository>
-            <id>liwenhe-release</id>
-            <url>http://linode.nexus.liwenhe.com/repository/maven-releases/</url>
-        </repository>
-    </distributionManagement>
+        <!-- commons lang3 -->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${version.commons.lang3}</version>
+        </dependency>
+        <!-- commons lang3 -->
+    </dependencies>
 
 </project>

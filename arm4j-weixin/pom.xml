@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.arm4j</groupId>
         <artifactId>arm4j-parent</artifactId>
-        <version>${version.arm4j.parent}</version>
+        <version>0.1.0</version>
     </parent>
 
     <name>arm4j-weixin</name>
@@ -15,10 +15,20 @@
     <artifactId>arm4j-weixin</artifactId>
 
     <dependencies>
+        <!-- fastjson -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${version.fastjson}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- fastjson -->
+
         <dependency>
             <groupId>com.arm4j.core</groupId>
             <artifactId>arm4j-core</artifactId>
-            <version>${version.arm4j.parent}</version>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
 
