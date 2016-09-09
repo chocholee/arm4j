@@ -5,7 +5,7 @@ import com.arm4j.core.HttpURLConnRequest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.testng.annotations.Test;
-import spring.boot.Application;
+import boot.Application;
 
 public class TestAll {
 

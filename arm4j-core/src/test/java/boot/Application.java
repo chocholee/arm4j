@@ -1,4 +1,4 @@
-package spring.boot;
+package boot;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
