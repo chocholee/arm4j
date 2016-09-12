@@ -82,7 +82,7 @@ public class WeiXinCoreManagement {
     private HttpURLConnFactoryManager connFactoryManager = null;
 
     private WeiXinCoreManagement() {
-        this.connFactoryManager = new HttpURLConnFactoryManager<WeiXinToken, HttpURLConnFactory>(factoryPool);
+        this.connFactoryManager = new HttpURLConnFactoryManager(factoryPool);
     }
 
     public static HttpURLConnFactoryManager getInstance() {
