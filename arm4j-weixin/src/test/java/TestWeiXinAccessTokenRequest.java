@@ -1,5 +1,5 @@
 import com.arm4j.weixin.exception.WeiXinRequestException;
-import com.arm4j.weixin.request.WeiXinAccessTokenRequest;
+import com.arm4j.weixin.request.accesstoken.WeiXinAccessTokenRequest;
 import org.testng.annotations.Test;
 
 public class TestWeiXinAccessTokenRequest {

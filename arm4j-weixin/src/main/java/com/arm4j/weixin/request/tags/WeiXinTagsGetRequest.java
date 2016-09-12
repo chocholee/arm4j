@@ -1,37 +1,34 @@
-package com.arm4j.weixin.request;
+package com.arm4j.weixin.request.tags;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.arm4j.core.DefaultURLParam;
-import com.arm4j.weixin.WeiXinToken;
 import com.arm4j.weixin.WeiXinCoreManagement;
+import com.arm4j.weixin.WeiXinToken;
 import com.arm4j.weixin.exception.WeiXinRequestException;
+import com.arm4j.weixin.request.tags.entity.TagsEntity;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 @SuppressWarnings("unchecked")
-public class WeiXinAccessTokenRequest {
+public class WeiXinTagsGetRequest {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(WeiXinAccessTokenRequest.class);
-
-    public static String request(String grantType, String appid, String secret) throws WeiXinRequestException {
+    public static List<TagsEntity> request(String accessToken) throws WeiXinRequestException {
         // 发送请求
-        String result = WeiXinCoreManagement.getInstance().get(WeiXinToken.ACCESS_TOKEN)
+        String result = WeiXinCoreManagement.getInstance().get(WeiXinToken.TAGS_GET)
                 .createConn()
                 .connect(
                         new DefaultURLParam.Builder()
-                                .add("grant_type", grantType)
-                                .add("appid", appid)
-                                .add("secret", secret)
+                                .add("access_token", accessToken)
                                 .build()
                 ).doGet();
 
         // 处理返回结果
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
-            if (resultJSON.containsKey("access_token"))
-                return resultJSON.getString("access_token");
+            if (resultJSON.containsKey("tags"))
+                return JSON.parseArray(resultJSON.getString("tags"), TagsEntity.class);
             else {
                 throw new WeiXinRequestException(result);
             }

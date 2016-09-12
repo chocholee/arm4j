@@ -10,7 +10,14 @@ import java.util.*;
  */
 public class DefaultURLParam implements Param {
 
-    private List<Map.Entry<String, String>> values = new ArrayList<>(Builder.params.entrySet());
+    private List<Map.Entry<String, String>> values;
+
+    public DefaultURLParam() {
+    }
+
+    public DefaultURLParam(Map<String, String> values) {
+        this.values = new ArrayList<>(values.entrySet());
+    }
 
     /**
      * 对参数进行升序处理
@@ -70,20 +77,20 @@ public class DefaultURLParam implements Param {
 
     public final static class Builder {
 
-        private final static Map<String, String> params = new HashMap<String, String>();
+        private final Map<String, String> params = new HashMap<String, String>();
 
         public Builder add(String value) {
-            DefaultURLParam.Builder.params.put(value, null);
+            this.params.put(value, null);
             return this;
         }
 
         public Builder add(String key, String value) {
-            DefaultURLParam.Builder.params.put(key, value);
+            this.params.put(key, value);
             return this;
         }
 
         public DefaultURLParam build() {
-            return new DefaultURLParam();
+            return new DefaultURLParam(this.params);
         }
     }
 

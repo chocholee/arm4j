@@ -1,6 +1,6 @@
 import com.arm4j.weixin.exception.WeiXinRequestException;
-import com.arm4j.weixin.request.WeiXinAccessTokenRequest;
-import com.arm4j.weixin.request.WeiXinGetCallbackIpRequest;
+import com.arm4j.weixin.request.accesstoken.WeiXinAccessTokenRequest;
+import com.arm4j.weixin.request.getcallbackip.WeiXinGetCallbackIpRequest;
 import org.testng.annotations.Test;
 
 public class TestWeiXinGetCallbackIPRequest {
