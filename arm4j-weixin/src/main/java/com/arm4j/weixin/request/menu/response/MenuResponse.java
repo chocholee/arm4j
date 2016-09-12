@@ -1,7 +1,7 @@
-package com.arm4j.weixin.request.menu.response.menu;
+package com.arm4j.weixin.request.menu.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.arm4j.weixin.request.menu.entity.menu.MenuEntity;
+import com.arm4j.weixin.request.menu.entity.MenuEntity;
 
 import java.util.List;
 

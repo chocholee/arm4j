@@ -6,7 +6,7 @@ import com.arm4j.core.DefaultURLParam;
 import com.arm4j.weixin.WeiXinCoreManagement;
 import com.arm4j.weixin.WeiXinToken;
 import com.arm4j.weixin.exception.WeiXinRequestException;
-import com.arm4j.weixin.request.menu.response.menu.MenuResponse;
+import com.arm4j.weixin.request.menu.response.MenuResponse;
 import org.apache.commons.lang3.StringUtils;
 
 @SuppressWarnings("unchecked")

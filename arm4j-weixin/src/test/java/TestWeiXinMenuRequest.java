@@ -1,11 +1,11 @@
 import com.alibaba.fastjson.JSON;
 import com.arm4j.weixin.exception.WeiXinRequestException;
 import com.arm4j.weixin.request.accesstoken.WeiXinAccessTokenRequest;
-import com.arm4j.weixin.request.menu.entity.menu.MenuButtonEntity;
-import com.arm4j.weixin.request.menu.entity.menu.MenuEntity;
-import com.arm4j.weixin.request.menu.entity.menu.MenuMatchRuleEntity;
+import com.arm4j.weixin.request.menu.entity.MenuButtonEntity;
+import com.arm4j.weixin.request.menu.entity.MenuEntity;
+import com.arm4j.weixin.request.menu.entity.MenuMatchRuleEntity;
 import com.arm4j.weixin.request.menu.*;
-import com.arm4j.weixin.request.menu.response.menu.MenuResponse;
+import com.arm4j.weixin.request.menu.response.MenuResponse;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
