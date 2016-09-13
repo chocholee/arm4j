@@ -31,6 +31,8 @@ public enum WeiXinToken {
     TAGS_GETIDLIST("https://api.weixin.qq.com/cgi-bin/tags/getidlist"),                             // 获取用户身上的标签列表
     TAGS_MEMBERS_BATCHTAGGING("https://api.weixin.qq.com/cgi-bin/tags/members/batchtagging"),       // 批量为用户打标签
     TAGS_MEMBERS_BATCHUNTAGGING("https://api.weixin.qq.com/cgi-bin/tags/members/batchuntagging"),   // 批量为用户取消标签
+    TAGS_MEMBERS_GETBLACKLIST("https://api.weixin.qq.com/cgi-bin/tags/members/getblacklist"),       // 获取公众号的黑名单列表
+    TAGS_MEMBERS_BATCHBLACKLIST("https://api.weixin.qq.com/cgi-bin/tags/members/batchblacklist"),   // 批量拉黑用户
 
     USER_INFO_UPDATE_REMARK("https://api.weixin.qq.com/cgi-bin/user/info/updateremark"),            // 设置用户备注名
     USER_INFO_GET("https://api.weixin.qq.com/cgi-bin/user/info"),                                   // 获取用户基本信息

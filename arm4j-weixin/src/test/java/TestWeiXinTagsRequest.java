@@ -3,6 +3,7 @@ import com.arm4j.weixin.request.accesstoken.WeiXinAccessTokenRequest;
 import com.arm4j.weixin.request.tags.*;
 import com.arm4j.weixin.request.tags.entity.TagsEntity;
 import com.arm4j.weixin.request.tags.response.TagsUserGetResponse;
+import com.arm4j.weixin.request.user.response.UserListResponse;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -121,6 +122,33 @@ public class TestWeiXinTagsRequest {
         System.out.println("token: " + token);
 
         Integer[] result = WeiXinTagsGetIdListRequest.request(token, "oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
+        System.out.println(result);
+    }
+
+    @Test
+    public void TestBatchBlackList() throws WeiXinRequestException {
+        String token = WeiXinAccessTokenRequest.request(
+                "client_credential",
+                "wx4458e6569617498d",
+                "dbe4e50e8465023eee2a489216870375");
+        System.out.println("token: " + token);
+
+        List<String> openIdList = new ArrayList<>();
+        openIdList.add("oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
+
+        boolean result = WeiXinTagsMembersBatchBlackListRequest.request(token, openIdList);
+        System.out.println(result);
+    }
+
+    @Test
+    public void TestGetBlackList() throws WeiXinRequestException {
+        String token = WeiXinAccessTokenRequest.request(
+                "client_credential",
+                "wx4458e6569617498d",
+                "dbe4e50e8465023eee2a489216870375");
+        System.out.println("token: " + token);
+
+        UserListResponse result = WeiXinTagsMembersGetBlackListRequest.request(token, "oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
         System.out.println(result);
     }
 

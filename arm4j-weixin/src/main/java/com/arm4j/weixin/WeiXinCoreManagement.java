@@ -71,6 +71,8 @@ public class WeiXinCoreManagement {
         HttpURLConnFactory tagsGetIdListFactory                 = new HttpURLConnFactory(WeiXinToken.TAGS_GETIDLIST.getName());
         HttpURLConnFactory tagsMembersBatchTaggingFactory       = new HttpURLConnFactory(WeiXinToken.TAGS_MEMBERS_BATCHTAGGING.getName());
         HttpURLConnFactory tagsMembersBatchUnTaggingFactory     = new HttpURLConnFactory(WeiXinToken.TAGS_MEMBERS_BATCHUNTAGGING.getName());
+        HttpURLConnFactory tagsMembersGetBlackListFactory       = new HttpURLConnFactory(WeiXinToken.TAGS_MEMBERS_GETBLACKLIST.getName());
+        HttpURLConnFactory tagsMembersBatchBlackListFactory     = new HttpURLConnFactory(WeiXinToken.TAGS_MEMBERS_BATCHBLACKLIST.getName());
         factoryPool.put(WeiXinToken.TAGS_CREATE, tagsCreateFactory);
         factoryPool.put(WeiXinToken.TAGS_GET, tagsGetFactory);
         factoryPool.put(WeiXinToken.TAGS_UPDATE, tagsUpdateFactory);
@@ -79,6 +81,8 @@ public class WeiXinCoreManagement {
         factoryPool.put(WeiXinToken.TAGS_GETIDLIST, tagsGetIdListFactory);
         factoryPool.put(WeiXinToken.TAGS_MEMBERS_BATCHTAGGING, tagsMembersBatchTaggingFactory);
         factoryPool.put(WeiXinToken.TAGS_MEMBERS_BATCHUNTAGGING, tagsMembersBatchUnTaggingFactory);
+        factoryPool.put(WeiXinToken.TAGS_MEMBERS_GETBLACKLIST, tagsMembersGetBlackListFactory);
+        factoryPool.put(WeiXinToken.TAGS_MEMBERS_BATCHBLACKLIST, tagsMembersBatchBlackListFactory);
 
         // 用户信息(设置用户备注名、获取用户基本信息、批量获取用户信息、获取用户列表)
         HttpURLConnFactory userInfoUpdateRemarkFactory          = new HttpURLConnFactory(WeiXinToken.USER_INFO_UPDATE_REMARK.getName());
