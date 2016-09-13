@@ -12,14 +12,13 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.HttpClientUtils;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -243,6 +242,29 @@ public class HttpClientUtil {
                 }
             } else
                 return null;
+        } finally {
+            HttpClientUtils.closeQuietly(response);
+        }
+    }
+
+    public static String upload(String url, String charset, String name, File file) throws IOException {
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+        builder.addBinaryBody(name, file, ContentType.DEFAULT_BINARY, file.getName());
+        HttpEntity entity = builder.build();
+
+        HttpPost post = new HttpPost(url);
+        post.setEntity(entity);
+
+        CloseableHttpClient httpClient = getHttpClient();
+        CloseableHttpResponse response = httpClient.execute(post);
+        try {
+            if (response.getStatusLine().getStatusCode() == 302 || response.getStatusLine().getStatusCode() == 301)
+                return response.getFirstHeader("Location").toString();
+            else {
+                HttpEntity resEntity = response.getEntity();
+                return EntityUtils.toString(resEntity, charset);
+            }
         } finally {
             HttpClientUtils.closeQuietly(response);
         }

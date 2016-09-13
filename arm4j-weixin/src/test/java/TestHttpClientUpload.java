@@ -1,3 +1,5 @@
+import com.arm4j.core.DefaultURLParam;
+import com.arm4j.core.HttpURLConn;
 import com.arm4j.core.support.HttpClientUtil;
 import com.arm4j.weixin.exception.WeiXinRequestException;
 import com.arm4j.weixin.request.accesstoken.WeiXinAccessTokenRequest;
@@ -20,18 +22,14 @@ public class TestHttpClientUpload {
                 "dbe4e50e8465023eee2a489216870375");
         System.out.println("token: " + token);
 
-        HttpPost post = new HttpPost("https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=" + token + "&type=image");
         File file = new File("F:/image1.jpg");
-        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-        builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-        builder.addBinaryBody("media", file, ContentType.DEFAULT_BINARY, "image1.jpg");
-//
-        HttpEntity entity = builder.build();
-        post.setEntity(entity);
-//        post.addHeader("Content-Disposition", "form-data;name=\"media\";filename=\"image1\"");
-//        post.addHeader("Content-Type", "application/octet-stream");
-        HttpResponse response = HttpClientUtil.getHttpClient().execute(post);
-        System.out.println();
+        String result = new HttpURLConn("https://api.weixin.qq.com/cgi-bin/material/add_material", "utf-8")
+                .connect(new DefaultURLParam.Builder()
+                        .add("access_token", token)
+                        .build())
+                .upload("media", file);
+
+        System.out.println(result);
     }
 
 }
