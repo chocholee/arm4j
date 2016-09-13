@@ -76,14 +76,14 @@ public class TestWeiXinMenuRequest {
         MenuButtonEntity view = new MenuButtonEntity();
         view.setName("图文消息");
         view.setType("view_limited");
-        view.setMediaId("_fTJX_QSefKawBPFEDlX60ql8K5Y742qZpBpcO8l7QkP7IKUmKglZS1CJc1fvHjt");
+        view.setMediaId("uwKXhoxRnhxqICRAd7CCTLiL7jKn3IRheMSUbQa55EI");
 
         List<MenuButtonEntity> buttonEntities = new ArrayList<>();
-        buttonEntities.add(scanCode);
+//        buttonEntities.add(scanCode);
         buttonEntities.add(pic);
 //        buttonEntities.add(location);
         buttonEntities.add(media);
-//        buttonEntities.add(view);
+        buttonEntities.add(view);
 
         MenuEntity menuEntity = new MenuEntity();
         menuEntity.setButtons(buttonEntities);

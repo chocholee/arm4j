@@ -230,7 +230,7 @@ public class HttpClientUtil {
             HttpEntity resEntity = response.getEntity();
             if (resEntity != null) {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                for (int b; (b = entity.getContent().read()) != -1;) {
+                for (int b; (b = resEntity.getContent().read()) != -1;) {
                     baos.write(b);
                 }
 
@@ -247,13 +247,23 @@ public class HttpClientUtil {
         }
     }
 
-    public static String upload(String url, String charset, String name, File file) throws IOException {
+    public static String upload(String url, String charset, Map<String, Object> forms) throws IOException {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-        builder.addBinaryBody(name, file, ContentType.DEFAULT_BINARY, file.getName());
-        HttpEntity entity = builder.build();
+        for (String key : forms.keySet()) {
+            if (byte[].class.isAssignableFrom(forms.get(key).getClass())) {
+                builder.addBinaryBody(key, (byte[])forms.get(key));
+            } else if (File.class.isAssignableFrom(forms.get(key).getClass())) {
+                builder.addBinaryBody(key, (File) forms.get(key));
+            } else if (InputStream.class.isAssignableFrom(forms.get(key).getClass())) {
+                builder.addBinaryBody(key, (InputStream) forms.get(key));
+            } else {
+                builder.addTextBody(key, (String) forms.get(key), ContentType.create("text/plain", charset));
+            }
+        }
 
         HttpPost post = new HttpPost(url);
+        HttpEntity entity = builder.build();
         post.setEntity(entity);
 
         CloseableHttpClient httpClient = getHttpClient();

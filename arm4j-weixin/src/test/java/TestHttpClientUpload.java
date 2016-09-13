@@ -12,6 +12,8 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestHttpClientUpload {
 
@@ -23,11 +25,14 @@ public class TestHttpClientUpload {
         System.out.println("token: " + token);
 
         File file = new File("F:/image1.jpg");
+        Map<String, Object> map = new HashMap<>();
+        map.put("media", file);
+
         String result = new HttpURLConn("https://api.weixin.qq.com/cgi-bin/material/add_material", "utf-8")
                 .connect(new DefaultURLParam.Builder()
                         .add("access_token", token)
                         .build())
-                .upload("media", file);
+                .upload(map);
 
         System.out.println(result);
     }

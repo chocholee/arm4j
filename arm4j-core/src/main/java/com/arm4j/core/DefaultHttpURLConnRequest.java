@@ -4,10 +4,10 @@ import com.arm4j.core.exception.HttpURLConnRequestException;
 import com.arm4j.core.support.HttpClientUtil;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.Map;
 
 /**
  * 默认实现{@code HttpURLConnRequest}
@@ -69,9 +69,9 @@ public class DefaultHttpURLConnRequest implements HttpURLConnRequest {
         }
     }
 
-    public String upload(String name, File file) {
+    public String upload(Map<String, Object> forms) {
         try {
-            return HttpClientUtil.upload(url, charset, name, file);
+            return HttpClientUtil.upload(url, charset, forms);
         } catch (IOException e) {
             throw new HttpURLConnRequestException("send an post request failed, url \'" + url + "\'" , e);
         }

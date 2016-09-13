@@ -11,6 +11,18 @@ public enum WeiXinToken {
     MENU_ADD_CONDITIONAL("https://api.weixin.qq.com/cgi-bin/menu/addconditional"),                  // 添加个性化菜单
     MENU_DEL_CONDITIONAL("https://api.weixin.qq.com/cgi-bin/menu/delconditional"),                  // 删除个性化菜单
 
+    MEDIA_UPLOAD("https://api.weixin.qq.com/cgi-bin/media/upload"),                                 // 新增临时素材
+    MEDIA_GET("https://api.weixin.qq.com/cgi-bin/media/get"),                                       // 获取临时素材
+    MEDIA_UPLOAD_IMG_TO_URL("https://api.weixin.qq.com/cgi-bin/media/uploadimg"),                   // 上传图文消息内的图片获取URL
+
+    MATERIAL_ADD_NEWS("https://api.weixin.qq.com/cgi-bin/material/add_news"),                       // 新增永久图文素材
+    MATERIAL_ADD_MATERIAL("https://api.weixin.qq.com/cgi-bin/material/add_material"),               // 新增其他类型永久素材
+    MATERIAL_GET_MATERIAL("https://api.weixin.qq.com/cgi-bin/material/get_material"),               // 获取永久素材
+    MATERIAL_DEL_MATERIAL("https://api.weixin.qq.com/cgi-bin/material/del_material"),               // 删除永久素材
+    MATERIAL_UPDATE_NEWS("https://api.weixin.qq.com/cgi-bin/material/update_news"),                 // 修改永久图文素材
+    MATERIAL_GET_MATERIAL_COUNT("https://api.weixin.qq.com/cgi-bin/material/get_materialcount"),    // 获取素材总数
+    MATERIAL_BATCH_GET_MATERIAL("https://api.weixin.qq.com/cgi-bin/material/batchget_material"),    // 获取素材列表
+
     TAGS_CREATE("https://api.weixin.qq.com/cgi-bin/tags/create"),                                   // 创建标签
     TAGS_GET("https://api.weixin.qq.com/cgi-bin/tags/get"),                                         // 获取标签
     TAGS_UPDATE("https://api.weixin.qq.com/cgi-bin/tags/update"),                                   // 编辑标签

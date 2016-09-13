@@ -1,7 +1,7 @@
 package com.arm4j.core;
 
-import java.io.File;
 import java.io.InputStream;
+import java.util.Map;
 
 /**
  * 此类为真实地http请求处理类
@@ -41,10 +41,9 @@ public interface HttpURLConnRequest {
     /**
      * http 表单上传
      *
-     * @param name 名称(用于后台接收的参数名称)
-     * @param file 上传文件
-     * @return
+     * @param forms 表单参数(Object可以使用如下类型：File、byte[]、InputStream、String)
+     * @return String
      */
-    String upload(String name, File file);
+    String upload(Map<String, Object> forms);
 
 }
