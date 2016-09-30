@@ -2,6 +2,7 @@ package com.arm4j.weixin;
 
 public enum WeiXinToken {
     ACCESS_TOKEN("https://api.weixin.qq.com/cgi-bin/token"),                                        // 获取access_token
+    JS_API_TICKET_ACCESS_TOKEN("https://api.weixin.qq.com/cgi-bin/ticket/getticket"),               // 获取js_api_ticket_accessToken
 
     GET_CALLBACK_IP("https://api.weixin.qq.com/cgi-bin/getcallbackip"),                             // 获取微信服务器IP地址
 

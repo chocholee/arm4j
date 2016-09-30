@@ -22,6 +22,10 @@ public class WeiXinCoreManagement {
         HttpURLConnFactory accessTokenFactory   = new HttpURLConnFactory(WeiXinToken.ACCESS_TOKEN.getName());
         factoryPool.put(WeiXinToken.ACCESS_TOKEN, accessTokenFactory);
 
+        // 获取js_api_ticket_access_token接口
+        HttpURLConnFactory jsApiTicketAccessTokenFactory = new HttpURLConnFactory(WeiXinToken.JS_API_TICKET_ACCESS_TOKEN.getName());
+        factoryPool.put(WeiXinToken.JS_API_TICKET_ACCESS_TOKEN, jsApiTicketAccessTokenFactory);
+
         // 获取微信服务器ip接口
         HttpURLConnFactory getCallbackIpFactory = new HttpURLConnFactory(WeiXinToken.GET_CALLBACK_IP.getName());
         factoryPool.put(WeiXinToken.GET_CALLBACK_IP, getCallbackIpFactory);
