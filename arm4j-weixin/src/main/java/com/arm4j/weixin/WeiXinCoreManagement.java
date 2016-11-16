@@ -102,11 +102,25 @@ public class WeiXinCoreManagement {
         HttpURLConnFactory shortUrlFactory      = new HttpURLConnFactory(WeiXinToken.SHORT_URL.getName());
         factoryPool.put(WeiXinToken.SHORT_URL, shortUrlFactory);
 
-        //  二维码(创建、查看)
+        // 二维码(创建、查看)
         HttpURLConnFactory qrCodeCreateFactory  = new HttpURLConnFactory(WeiXinToken.QRCODE_CREATE.getName());
         HttpURLConnFactory qrCodeShowFactory    = new HttpURLConnFactory(WeiXinToken.QRCODE_SHOW.getName());
         factoryPool.put(WeiXinToken.QRCODE_CREATE, qrCodeCreateFactory);
         factoryPool.put(WeiXinToken.QRCODE_SHOW, qrCodeShowFactory);
+
+        // 客服接口
+        HttpURLConnFactory kfAccountAddFactory              = new HttpURLConnFactory(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_ADD.getName());
+        HttpURLConnFactory kfAccountUpdateFactory           = new HttpURLConnFactory(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_UPDATE.getName());
+        HttpURLConnFactory kfAccountDelFactory              = new HttpURLConnFactory(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_DEL.getName());
+        HttpURLConnFactory kfAccountUploadHeadImgFactory    = new HttpURLConnFactory(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_UPLOAD_HEADIMG.getName());
+        HttpURLConnFactory kfAccountGetListFactory          = new HttpURLConnFactory(WeiXinToken.CUSTOM_SERVICE_GET_KF_LIST.getName());
+        HttpURLConnFactory kfAccountSendMessageFactory      = new HttpURLConnFactory(WeiXinToken.CUSTOM_SERVICE_SEND_MESSAGE.getName());
+        factoryPool.put(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_ADD, kfAccountAddFactory);
+        factoryPool.put(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_UPDATE, kfAccountUpdateFactory);
+        factoryPool.put(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_DEL, kfAccountDelFactory);
+        factoryPool.put(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_UPLOAD_HEADIMG, kfAccountUploadHeadImgFactory);
+        factoryPool.put(WeiXinToken.CUSTOM_SERVICE_GET_KF_LIST, kfAccountGetListFactory);
+        factoryPool.put(WeiXinToken.CUSTOM_SERVICE_SEND_MESSAGE, kfAccountSendMessageFactory);
     }
 
     private static WeiXinCoreManagement instance = null;

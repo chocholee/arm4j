@@ -43,7 +43,14 @@ public enum WeiXinToken {
     SHORT_URL("https://api.weixin.qq.com/cgi-bin/shorturl"),                                        // 长链接转短链接接口
 
     QRCODE_CREATE("https://api.weixin.qq.com/cgi-bin/qrcode/create"),                               // 创建二维码ticket
-    QRCODE_SHOW("https://mp.weixin.qq.com/cgi-bin/showqrcode");                                     // 通过ticket换取二维码
+    QRCODE_SHOW("https://mp.weixin.qq.com/cgi-bin/showqrcode"),                                     // 通过ticket换取二维码
+
+    CUSTOM_SERVICE_KF_ACCOUNT_ADD("https://api.weixin.qq.com/customservice/kfaccount/add"),         // 添加客服帐号
+    CUSTOM_SERVICE_KF_ACCOUNT_UPDATE("https://api.weixin.qq.com/customservice/kfaccount/update"),   // 修改客服帐号
+    CUSTOM_SERVICE_KF_ACCOUNT_DEL("https://api.weixin.qq.com/customservice/kfaccount/del"),         // 删除客服
+    CUSTOM_SERVICE_KF_ACCOUNT_UPLOAD_HEADIMG("http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg"), // 上传客服头像
+    CUSTOM_SERVICE_GET_KF_LIST("https://api.weixin.qq.com/cgi-bin/customservice/getkflist"),        // 获取所有客服账号
+    CUSTOM_SERVICE_SEND_MESSAGE("https://api.weixin.qq.com/cgi-bin/message/custom/send");           // 客服接口-发消息
 
     private final String name;
 
