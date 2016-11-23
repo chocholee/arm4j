@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 @SuppressWarnings("unchecked")
 public class WeiXinCustomServiceSendMessageRequest {
 
-    public static boolean request(String accessToken, KFAccountMsgEntity entity) throws WeiXinRequestException {
+    public static void request(String accessToken, KFAccountMsgEntity entity) throws WeiXinRequestException {
         // 发送请求
         String result = WeiXinCoreManagement.getInstance().get(WeiXinToken.CUSTOM_SERVICE_SEND_MESSAGE)
                 .createConn()
@@ -31,9 +31,12 @@ public class WeiXinCustomServiceSendMessageRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

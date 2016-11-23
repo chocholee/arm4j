@@ -13,7 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 @SuppressWarnings("unchecked")
 public class WeiXinMenuDelConditionalRequest {
 
-    public static boolean request(String accessToken, MenuEntity entity) throws WeiXinRequestException {
+    public static void request(String accessToken, MenuEntity entity) throws WeiXinRequestException {
         // 发送请求
         String result = WeiXinCoreManagement.getInstance().get(WeiXinToken.MENU_DEL_CONDITIONAL)
                 .createConn()
@@ -28,9 +28,12 @@ public class WeiXinMenuDelConditionalRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

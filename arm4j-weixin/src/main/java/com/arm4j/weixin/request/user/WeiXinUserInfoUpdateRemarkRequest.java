@@ -15,7 +15,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class WeiXinUserInfoUpdateRemarkRequest {
 
-    public static boolean request(String accessToken, String openid, String remark) throws WeiXinRequestException {
+    public static void request(String accessToken, String openid, String remark) throws WeiXinRequestException {
         Map<String, Object> userInfoMap = new HashMap<>();
         userInfoMap.put("openid", openid);
         userInfoMap.put("remark", remark);
@@ -34,9 +34,12 @@ public class WeiXinUserInfoUpdateRemarkRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

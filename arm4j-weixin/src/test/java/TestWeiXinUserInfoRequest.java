@@ -22,8 +22,7 @@ public class TestWeiXinUserInfoRequest {
                 "dbe4e50e8465023eee2a489216870375");
         System.out.println("token: " + token);
 
-        boolean result = WeiXinUserInfoUpdateRemarkRequest.request(token, "oGOUTs5EKpj6yb3KAgd3YCOJL0c8", "天下第一帅");
-        System.out.println(result);
+        WeiXinUserInfoUpdateRemarkRequest.request(token, "oGOUTs5EKpj6yb3KAgd3YCOJL0c8", "天下第一帅");
     }
 
     @Test

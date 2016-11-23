@@ -16,7 +16,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class WeiXinTagsMembersBatchBlackListRequest {
 
-    public static boolean request(String accessToken, List<String> openIdList) throws WeiXinRequestException {
+    public static void request(String accessToken, List<String> openIdList) throws WeiXinRequestException {
         Map<String, List<String>> openIdListMap = new HashMap<>();
         openIdListMap.put("openid_list", openIdList);
 
@@ -34,9 +34,12 @@ public class WeiXinTagsMembersBatchBlackListRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

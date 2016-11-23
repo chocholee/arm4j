@@ -16,7 +16,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class WeiXinTagsMembersBatchTaggingRequest {
 
-    public static boolean request(String accessToken, int tagid, List<String> openidList) throws WeiXinRequestException {
+    public static void request(String accessToken, int tagid, List<String> openidList) throws WeiXinRequestException {
         Map<String, Object> tagMap = new HashMap<>();
         tagMap.put("tagid", tagid);
         tagMap.put("openid_list", openidList);
@@ -35,9 +35,12 @@ public class WeiXinTagsMembersBatchTaggingRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

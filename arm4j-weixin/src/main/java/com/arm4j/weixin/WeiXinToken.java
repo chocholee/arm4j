@@ -50,7 +50,15 @@ public enum WeiXinToken {
     CUSTOM_SERVICE_KF_ACCOUNT_DEL("https://api.weixin.qq.com/customservice/kfaccount/del"),         // 删除客服
     CUSTOM_SERVICE_KF_ACCOUNT_UPLOAD_HEADIMG("http://api.weixin.qq.com/customservice/kfaccount/uploadheadimg"), // 上传客服头像
     CUSTOM_SERVICE_GET_KF_LIST("https://api.weixin.qq.com/cgi-bin/customservice/getkflist"),        // 获取所有客服账号
-    CUSTOM_SERVICE_SEND_MESSAGE("https://api.weixin.qq.com/cgi-bin/message/custom/send");           // 客服接口-发消息
+    CUSTOM_SERVICE_SEND_MESSAGE("https://api.weixin.qq.com/cgi-bin/message/custom/send"),           // 客服接口-发消息
+
+    GROUPS_CREATE("https://api.weixin.qq.com/cgi-bin/groups/create"),                               // 创建分组
+    GROUPS_GET("https://api.weixin.qq.com/cgi-bin/groups/get"),                                     // 查询所有分组
+    GROUPS_GET_ID("https://api.weixin.qq.com/cgi-bin/groups/getid"),                                // 查询用户所在分组
+    GROUPS_UPDATE("https://api.weixin.qq.com/cgi-bin/groups/update"),                               // 修改分组名称
+    GROUPS_MEMBERS_UPDATE("https://api.weixin.qq.com/cgi-bin/groups/members/update"),               // 移动用户分组
+    GROUPS_MEMBERS_BATCH_UPDATE("https://api.weixin.qq.com/cgi-bin/groups/members/batchupdate"),    // 批量移动用户分组
+    GROUPS_DELETE("https://api.weixin.qq.com/cgi-bin/groups/delete");                               // 删除分组
 
     private final String name;
 

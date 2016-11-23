@@ -117,8 +117,7 @@ public class TestWeiXinMaterialRequest {
                 "dbe4e50e8465023eee2a489216870375");
         System.out.println(token);
 
-        boolean response = WeiXinMaterialDelMaterialRequest.request(token, "uwKXhoxRnhxqICRAd7CCTOU-pbalYwlYzwxBBEnO4rM");
-        System.out.println(response);
+        WeiXinMaterialDelMaterialRequest.request(token, "uwKXhoxRnhxqICRAd7CCTOU-pbalYwlYzwxBBEnO4rM");
     }
 
     @Test
@@ -137,8 +136,7 @@ public class TestWeiXinMaterialRequest {
         entity.setShowCoverPic(1);
         entity.setThumbMediaId("uwKXhoxRnhxqICRAd7CCTCuLNvOyP8hdOVhOjeMMciA");
 
-        boolean response = WeiXinMaterialUpdateMaterialRequest.request(token, "uwKXhoxRnhxqICRAd7CCTLiL7jKn3IRheMSUbQa55EI", 0, entity);
-        System.out.println(response);
+        WeiXinMaterialUpdateMaterialRequest.request(token, "uwKXhoxRnhxqICRAd7CCTLiL7jKn3IRheMSUbQa55EI", 0, entity);
     }
 
     @Test

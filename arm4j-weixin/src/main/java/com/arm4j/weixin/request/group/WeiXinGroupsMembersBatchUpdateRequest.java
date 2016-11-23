@@ -1,4 +1,4 @@
-package com.arm4j.weixin.request.customservice;
+package com.arm4j.weixin.request.group;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -7,24 +7,31 @@ import com.arm4j.core.DefaultURLParam;
 import com.arm4j.weixin.WeiXinCoreManagement;
 import com.arm4j.weixin.WeiXinToken;
 import com.arm4j.weixin.exception.WeiXinRequestException;
-import com.arm4j.weixin.request.customservice.entity.KFAccountEntity;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
- * Created by liwenhe on 16/11/16.
+ * Created by liwenhe on 16/11/23.
  */
 @SuppressWarnings("unchecked")
-public class WeiXinCustomServiceKFAccountUpdateRequest {
+public class WeiXinGroupsMembersBatchUpdateRequest {
 
-    public static void request(String accessToken, KFAccountEntity entity) throws WeiXinRequestException {
+    public static void request(String accessToken, List<String> openIdList, Integer toGroupId) throws WeiXinRequestException {
+        Map<String, Object> bodyMap = new HashMap<>();
+        bodyMap.put("openid_list", openIdList);
+        bodyMap.put("to_groupid", toGroupId);
+
         // 发送请求
-        String result = WeiXinCoreManagement.getInstance().get(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_UPDATE)
+        String result = WeiXinCoreManagement.getInstance().get(WeiXinToken.GROUPS_MEMBERS_BATCH_UPDATE)
                 .createConn()
                 .connect(
                         new DefaultURLParam.Builder()
                                 .add("access_token", accessToken)
                                 .build(),
-                        new DefaultEntityParam(JSON.toJSONString(entity))
+                        new DefaultEntityParam(JSON.toJSONString(bodyMap))
                 ).doPost();
 
         // 处理返回结果

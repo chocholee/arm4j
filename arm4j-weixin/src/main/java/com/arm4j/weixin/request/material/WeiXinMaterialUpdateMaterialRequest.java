@@ -16,7 +16,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class WeiXinMaterialUpdateMaterialRequest {
 
-    public static boolean request(String accessToken, String mediaId, int index, NewsEntity articles) throws WeiXinRequestException {
+    public static void request(String accessToken, String mediaId, int index, NewsEntity articles) throws WeiXinRequestException {
         Map<String, Object> bodyMap = new HashMap<>();
         bodyMap.put("media_id", mediaId);
         bodyMap.put("index", index);
@@ -36,9 +36,12 @@ public class WeiXinMaterialUpdateMaterialRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

@@ -88,8 +88,7 @@ public class TestWeiXinMenuRequest {
         MenuEntity menuEntity = new MenuEntity();
         menuEntity.setButtons(buttonEntities);
 
-        boolean result = WeiXinMenuCreateRequest.request(token, menuEntity);
-        System.out.println(result);
+        WeiXinMenuCreateRequest.request(token, menuEntity);
     }
 
     @Test
@@ -112,8 +111,7 @@ public class TestWeiXinMenuRequest {
                 "dbe4e50e8465023eee2a489216870375");
         System.out.println("token: " + token);
 
-        boolean result = WeiXinMenuDeleteRequest.request(token);
-        System.out.println(result);
+        WeiXinMenuDeleteRequest.request(token);
     }
 
     @Test
@@ -169,8 +167,7 @@ public class TestWeiXinMenuRequest {
 
         MenuEntity menuEntity = new MenuEntity();
         menuEntity.setMenuId("428149018");
-        boolean result = WeiXinMenuDelConditionalRequest.request(token, menuEntity);
-        System.out.println(result);
+        WeiXinMenuDelConditionalRequest.request(token, menuEntity);
     }
 
 }

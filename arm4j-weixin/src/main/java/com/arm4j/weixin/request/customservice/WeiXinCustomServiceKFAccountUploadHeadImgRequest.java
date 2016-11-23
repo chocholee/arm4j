@@ -19,7 +19,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class WeiXinCustomServiceKFAccountUploadHeadImgRequest {
 
-    public static boolean request(String accessToken, KFAccountEntity entity) throws WeiXinRequestException {
+    public static void request(String accessToken, KFAccountEntity entity) throws WeiXinRequestException {
 
         Map<String, Object> formParamMap = new HashMap<>();
         formParamMap.put(entity.getMedia().getName(), entity.getMedia());
@@ -39,9 +39,12 @@ public class WeiXinCustomServiceKFAccountUploadHeadImgRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }

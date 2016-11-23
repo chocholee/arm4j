@@ -121,6 +121,22 @@ public class WeiXinCoreManagement {
         factoryPool.put(WeiXinToken.CUSTOM_SERVICE_KF_ACCOUNT_UPLOAD_HEADIMG, kfAccountUploadHeadImgFactory);
         factoryPool.put(WeiXinToken.CUSTOM_SERVICE_GET_KF_LIST, kfAccountGetListFactory);
         factoryPool.put(WeiXinToken.CUSTOM_SERVICE_SEND_MESSAGE, kfAccountSendMessageFactory);
+
+        // 分组接口
+        HttpURLConnFactory groupsCreateFactory              = new HttpURLConnFactory(WeiXinToken.GROUPS_CREATE.getName());
+        HttpURLConnFactory groupsGetFactory                 = new HttpURLConnFactory(WeiXinToken.GROUPS_GET.getName());
+        HttpURLConnFactory groupsGetIdFactory               = new HttpURLConnFactory(WeiXinToken.GROUPS_GET_ID.getName());
+        HttpURLConnFactory groupsUpdateFactory              = new HttpURLConnFactory(WeiXinToken.GROUPS_UPDATE.getName());
+        HttpURLConnFactory groupsMembersUpdateFactory       = new HttpURLConnFactory(WeiXinToken.GROUPS_MEMBERS_UPDATE.getName());
+        HttpURLConnFactory groupsMembersBatchUpdateFactory  = new HttpURLConnFactory(WeiXinToken.GROUPS_MEMBERS_BATCH_UPDATE.getName());
+        HttpURLConnFactory groupsDeleteFactory              = new HttpURLConnFactory(WeiXinToken.GROUPS_DELETE.getName());
+        factoryPool.put(WeiXinToken.GROUPS_CREATE, groupsCreateFactory);
+        factoryPool.put(WeiXinToken.GROUPS_GET, groupsGetFactory);
+        factoryPool.put(WeiXinToken.GROUPS_GET_ID, groupsGetIdFactory);
+        factoryPool.put(WeiXinToken.GROUPS_UPDATE, groupsUpdateFactory);
+        factoryPool.put(WeiXinToken.GROUPS_MEMBERS_UPDATE, groupsMembersUpdateFactory);
+        factoryPool.put(WeiXinToken.GROUPS_MEMBERS_BATCH_UPDATE, groupsMembersBatchUpdateFactory);
+        factoryPool.put(WeiXinToken.GROUPS_DELETE, groupsDeleteFactory);
     }
 
     private static WeiXinCoreManagement instance = null;

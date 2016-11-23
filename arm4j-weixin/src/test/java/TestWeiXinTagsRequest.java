@@ -50,8 +50,7 @@ public class TestWeiXinTagsRequest {
         entity.setId(170);
         entity.setName("11");
 
-        boolean result = WeiXinTagsUpdateRequest.request(token, entity);
-        System.out.println(result);
+        WeiXinTagsUpdateRequest.request(token, entity);
     }
 
     @Test
@@ -65,8 +64,7 @@ public class TestWeiXinTagsRequest {
         TagsEntity entity = new TagsEntity();
         entity.setId(170);
 
-        boolean result = WeiXinTagsDeleteRequest.request(token, entity);
-        System.out.println(result);
+        WeiXinTagsDeleteRequest.request(token, entity);
     }
 
     @Test
@@ -93,8 +91,7 @@ public class TestWeiXinTagsRequest {
         openIdList.add("oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
         openIdList.add("oGOUTs98quXJxdTK96cN9FabD8EQ");
 
-        boolean result = WeiXinTagsMembersBatchTaggingRequest.request(token, 169, openIdList);
-        System.out.println(result);
+        WeiXinTagsMembersBatchTaggingRequest.request(token, 169, openIdList);
     }
 
     @Test
@@ -109,8 +106,7 @@ public class TestWeiXinTagsRequest {
         openIdList.add("oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
         openIdList.add("oGOUTs98quXJxdTK96cN9FabD8EQ");
 
-        boolean result = WeiXinTagsMembersBatchTaggingRequest.request(token, 2, openIdList);
-        System.out.println(result);
+        WeiXinTagsMembersBatchTaggingRequest.request(token, 2, openIdList);
     }
 
     @Test
@@ -136,8 +132,7 @@ public class TestWeiXinTagsRequest {
         List<String> openIdList = new ArrayList<>();
         openIdList.add("oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
 
-        boolean result = WeiXinTagsMembersBatchBlackListRequest.request(token, openIdList);
-        System.out.println(result);
+        WeiXinTagsMembersBatchBlackListRequest.request(token, openIdList);
     }
 
     @Test

@@ -24,8 +24,7 @@ public class TestWeiXinCustomServiceRequest {
         kfAccountEntity.setKfAccount("test1@gh_ad4593288265");
         kfAccountEntity.setNickname("客服1");
         kfAccountEntity.setPassword("202cb962ac59075b964b07152d234b70");
-        boolean result = WeiXinCustomServiceKFAccountAddRequest.request(token, kfAccountEntity);
-        System.out.println("result: " + result);
+        WeiXinCustomServiceKFAccountAddRequest.request(token, kfAccountEntity);
     }
 
     @Test
@@ -41,8 +40,7 @@ public class TestWeiXinCustomServiceRequest {
         KFAccountTextMsgEntity kfAccountTextMsgEntity = new KFAccountTextMsgEntity();
         kfAccountTextMsgEntity.setText(textMsgEntity);
         kfAccountTextMsgEntity.setToUser("oGOUTs5EKpj6yb3KAgd3YCOJL0c8");
-        boolean result = WeiXinCustomServiceSendMessageRequest.request(token, kfAccountTextMsgEntity);
-        System.out.println("result: " + result);
+        WeiXinCustomServiceSendMessageRequest.request(token, kfAccountTextMsgEntity);
     }
 
 }

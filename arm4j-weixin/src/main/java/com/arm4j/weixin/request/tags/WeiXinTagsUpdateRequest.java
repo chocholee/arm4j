@@ -16,7 +16,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class WeiXinTagsUpdateRequest {
 
-    public static boolean request(String accessToken, TagsEntity entity) throws WeiXinRequestException {
+    public static void request(String accessToken, TagsEntity entity) throws WeiXinRequestException {
         Map<String, Map<String, Object>> map = new HashMap<>();
         Map<String, Object> tagMap = new HashMap<>();
         tagMap.put("name", entity.getName());
@@ -37,9 +37,12 @@ public class WeiXinTagsUpdateRequest {
         if (!StringUtils.isEmpty(result)) {
             JSONObject resultJSON = JSON.parseObject(result);
             int errCode = resultJSON.getInteger("errcode");
-            return 0 == errCode;
+            if (0 != errCode) {
+                throw new WeiXinRequestException(result);
+            }
+        } else {
+            throw new WeiXinRequestException("请求失败,原因[未知]");
         }
-        throw new WeiXinRequestException("请求失败,原因[未知]");
     }
 
 }
