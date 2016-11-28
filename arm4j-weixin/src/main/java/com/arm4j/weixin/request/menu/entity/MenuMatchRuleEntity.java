@@ -4,8 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class MenuMatchRuleEntity {
 
-    @JSONField(name = "tag_id")
-    private String tagId;
+    @JSONField(name = "group_id")
+    private String groupId;
 
     @JSONField(name = "sex")
     private String sex;
@@ -25,8 +25,8 @@ public class MenuMatchRuleEntity {
     @JSONField(name = "language")
     private String language;
 
-    public String getTagId() {
-        return tagId;
+    public String getGroupId() {
+        return groupId;
     }
 
     public String getSex() {
@@ -53,8 +53,8 @@ public class MenuMatchRuleEntity {
         return language;
     }
 
-    public void setTagId(String tagId) {
-        this.tagId = tagId;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public void setSex(String sex) {
