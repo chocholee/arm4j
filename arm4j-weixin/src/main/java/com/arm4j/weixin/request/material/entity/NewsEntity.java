@@ -25,6 +25,9 @@ public class NewsEntity {
     @JSONField(name = "show_cover_pic")
     private int showCoverPic;
 
+    @JSONField(name = "url")
+    private String url;
+
     public String getTitle() {
         return title;
     }
@@ -51,6 +54,10 @@ public class NewsEntity {
 
     public int getShowCoverPic() {
         return showCoverPic;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public void setTitle(String title) {
@@ -80,4 +87,9 @@ public class NewsEntity {
     public void setShowCoverPic(int showCoverPic) {
         this.showCoverPic = showCoverPic;
     }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 }

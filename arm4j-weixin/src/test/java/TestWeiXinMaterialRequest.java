@@ -95,10 +95,10 @@ public class TestWeiXinMaterialRequest {
         System.out.println(token);
 
         NewsEntity entity = new NewsEntity();
-        entity.setTitle("她真的太漂亮了1");
-        entity.setAuthor("李文禾");
-        entity.setContent(".....11111111111111");
-        entity.setDigest("她真的太漂亮了1");
+        entity.setTitle("她真的太漂亮了1asdafadf");
+        entity.setAuthor("李文禾adsf");
+        entity.setContent(".....11111111111111adsfasdf");
+        entity.setDigest("她真的太漂亮了1adfadsfadf");
         entity.setShowCoverPic(1);
         entity.setThumbMediaId("uwKXhoxRnhxqICRAd7CCTCuLNvOyP8hdOVhOjeMMciA");
 
