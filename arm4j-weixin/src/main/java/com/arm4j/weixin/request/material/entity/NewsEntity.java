@@ -28,6 +28,9 @@ public class NewsEntity {
     @JSONField(name = "url")
     private String url;
 
+    @JSONField(name = "thumb_url")
+    private String thumbUrl;
+
     public String getTitle() {
         return title;
     }
@@ -58,6 +61,10 @@ public class NewsEntity {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getThumbUrl() {
+        return thumbUrl;
     }
 
     public void setTitle(String title) {
@@ -92,4 +99,7 @@ public class NewsEntity {
         this.url = url;
     }
 
+    public void setThumbUrl(String thumbUrl) {
+        this.thumbUrl = thumbUrl;
+    }
 }
